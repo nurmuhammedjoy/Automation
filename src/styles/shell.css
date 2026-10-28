@@ -1,0 +1,86 @@
+/* App shell: page container, bottom navigation, and FAB placement. */
+.view {
+  width: 100%;
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding: calc(12px + env(safe-area-inset-top)) 16px
+    calc(var(--tabbar-height) + env(safe-area-inset-bottom) + 88px);
+  outline: none;
+  animation: view-in 140ms ease-out;
+}
+
+.view > div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.view :is(input, select, textarea, button, a) {
+  scroll-margin-top: calc(16px + env(safe-area-inset-top));
+  scroll-margin-bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom) + 16px);
+}
+
+@keyframes view-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Bottom navigation */
+.tabbar {
+  position: fixed;
+  z-index: 40;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  height: calc(var(--tabbar-height) + env(safe-area-inset-bottom));
+  /* Keep the bar edge-to-edge while the destinations stay aligned with the page. */
+  padding: 8px max(12px, calc((100vw - 520px) / 2)) calc(8px + env(safe-area-inset-bottom));
+  background: var(--surface-container);
+  box-shadow: 0 -1px 0 var(--outline-variant);
+}
+
+.tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 0;
+  min-height: 64px;
+  border: 0;
+  border-radius: 16px;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: color 120ms;
+}
+
+.tab-icon {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 32px;
+  border-radius: 16px;
+  transition: background 160ms, color 160ms;
+}
+
+.tab svg {
+  width: 24px;
+  height: 24px;
+}
+
+.tab:hover { color: var(--on-surface); }
+
+.tab.active {
+  color: var(--on-surface);
+}
+.tab.active .tab-icon {
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+}
+

@@ -1,0 +1,22 @@
+/* Breakpoints, reduced motion, and the .hidden override. */
+@media (min-width: 640px) {
+  .page-title { font-size: 32px; line-height: 40px; }
+  .view { padding-inline: 24px; }
+  .tabbar {
+    padding-inline: max(24px, calc((100vw - 520px) / 2));
+  }
+  .fab { right: max(24px, calc((100vw - var(--page-width)) / 2 + 24px)); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Component display rules are unlayered, so they would otherwise win over
+   Tailwind's layered .hidden utility. Keep visibility toggles authoritative. */
+.hidden { display: none; }

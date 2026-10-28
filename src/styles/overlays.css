@@ -1,0 +1,192 @@
+/* Bottom sheets, dialogs, version picker, and snackbar. */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.5);
+  animation: fade-in 120ms ease-out;
+}
+
+.modal-panel {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  max-height: min(92dvh, 920px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-radius: 28px 28px 0 0;
+  background: var(--surface-container-low);
+  box-shadow: var(--elevation-3);
+  animation: slide-up 180ms ease-out;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.modal-panel::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 4px;
+  margin: 10px auto 2px;
+  border-radius: 2px;
+  background: var(--outline-variant);
+}
+
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 12px 12px 24px;
+}
+.modal-head-copy { min-width: 0; flex: 1; padding-top: 4px; }
+.modal-title {
+  margin: 0;
+  color: var(--on-surface);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+}
+.modal-sub {
+  margin: 4px 0 0;
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  line-height: 20px;
+}
+.modal-body { padding: 4px 24px 20px; }
+.modal-body-flush { padding-left: 0; padding-right: 0; }
+
+/* Version picker */
+.version-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.version-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--on-surface);
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+.version-option:hover { background: color-mix(in srgb, var(--on-surface) 6%, transparent); }
+.version-option:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.version-option-state {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: var(--on-surface-muted);
+}
+.version-option[aria-checked="true"] {
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+}
+.version-option[aria-checked="true"] .version-option-state,
+.version-option[aria-checked="true"] .version-option-meta { color: inherit; }
+.version-option-copy { min-width: 0; flex: 1; }
+.version-option-title {
+  display: block;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.version-option-meta {
+  flex: none;
+  color: var(--on-surface-muted);
+  font-size: 12px;
+  line-height: 16px;
+  white-space: nowrap;
+}
+
+.modal-foot {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 12px 16px 16px;
+  background: var(--surface-container-low);
+  box-shadow: 0 -1px 0 var(--outline-variant);
+}
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+@media (min-width: 640px) {
+  .modal-backdrop { align-items: center; padding: 24px; }
+  .modal-panel { border-radius: 28px; max-height: min(85dvh, 880px); }
+  .modal-panel::before { display: none; }
+  .modal-foot { border-radius: 0 0 28px 28px; }
+}
+
+/* Snackbar */
+.toast-wrap {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom) + 16px);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(92vw, 480px);
+  pointer-events: none;
+}
+/* Keep snackbars clear of the extended FAB when one is on screen. */
+body:has(.fab) .toast-wrap { bottom: calc(var(--tabbar-height) + env(safe-area-inset-bottom) + 80px); }
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid color-mix(in srgb, var(--outline-variant) 60%, transparent);
+  border-radius: 16px;
+  background: var(--surface-container-highest);
+  box-shadow: var(--elevation-3);
+  color: var(--on-surface);
+  font-size: 14px;
+  line-height: 20px;
+  animation: toast-in 160ms ease-out;
+  pointer-events: auto;
+  cursor: pointer;
+}
+/* Status is carried by the icon tint, not a loud inverted surface. */
+.toast-icon {
+  flex: none;
+  margin-top: 1px;
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+}
+.toast[data-kind="error"] .toast-icon { color: var(--error); }
+.toast[data-kind="success"] .toast-icon { color: var(--success); }
+
+.kbd {
+  padding: 1px 5px;
+  border: 1px solid var(--outline-variant);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  background: var(--surface-container-high);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--on-surface-variant);
+}
+

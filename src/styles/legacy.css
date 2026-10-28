@@ -1,0 +1,104 @@
+/* Aliases kept for older markup. */
+.m-section-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.m-section-head .m-chip { max-width: 60%; white-space: normal; line-height: 16px; text-align: right; }
+.m-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--on-surface);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.m-menu-item:hover { background: var(--surface-container-high); }
+.m-menu-item svg { color: var(--on-surface-variant); }
+.m-danger { color: var(--error); }
+.m-danger svg { color: var(--error); }
+
+.m-flow-card { padding: 0; }
+.m-live-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.m-flow-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  background: transparent;
+  color: var(--on-surface);
+}
+.m-flow-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 14px;
+}
+.m-mini-chain {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+}
+.m-mini-chain > span:not(.m-mini-arrow) {
+  max-width: 120px;
+  overflow: hidden;
+  padding: 2px 8px;
+  border-radius: 8px;
+  background: var(--surface-container-high);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-mini-arrow { display: inline-flex; flex: none; color: var(--on-surface-muted); }
+.m-chain-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 12px;
+  border-radius: 16px;
+  background: var(--surface-container-low);
+  scrollbar-width: none;
+}
+.m-chain-preview::-webkit-scrollbar { display: none; }
+.m-chain-chip {
+  flex: none;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.m-chain-chip.accent { background: var(--secondary-container); color: var(--on-secondary-container); }
+.m-run-card { padding: 16px; }
+
+.m3-list { display: flex; flex-direction: column; }
+

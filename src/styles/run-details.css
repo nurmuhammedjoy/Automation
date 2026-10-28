@@ -1,0 +1,246 @@
+/* Step details: tonal type chips (same tones as the Build graph), no status dots. */
+.result-step .graph-node-icon.result-step-icon {
+  margin-top: 1px;
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+}
+.result-step .graph-node-icon.result-step-icon svg {
+  width: 17px;
+  height: 17px;
+}
+.result-step .graph-node-icon-error {
+  background: var(--error-container);
+  color: var(--on-error-container);
+}
+.result-step-main { min-width: 0; flex: 1; }
+.result-step-head { display: flex; align-items: baseline; gap: 8px; }
+.result-step-name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  color: var(--on-surface);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result-step-time {
+  flex: none;
+  color: var(--on-surface-muted);
+  font-size: 11px;
+  line-height: 20px;
+  font-variant-numeric: tabular-nums;
+}
+.result-step-model {
+  margin-top: 2px;
+  overflow: hidden;
+  color: var(--on-surface-muted);
+  font-size: 12px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.result-step-preview {
+  display: -webkit-box;
+  margin-top: 2px;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  color: var(--on-surface-muted);
+  font-size: 13px;
+  line-height: 17px;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.result-step-error {
+  margin-top: 4px;
+  color: var(--error);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.result-transcript-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.result-transcript-actions {
+  display: flex;
+  gap: 2px;
+  margin: 8px 0 0 -10px;
+}
+
+.result-refine {
+  margin: 0 20px;
+  padding: 16px 0 20px;
+  border-top: 1px solid color-mix(in srgb, var(--outline-variant) 62%, transparent);
+}
+.result-refine-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--on-surface);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.result-refine-head h3 { margin: 0; font: inherit; }
+.result-refine-input { margin-top: 10px; }
+.result-refine-chips {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 10px 0 4px;
+  scrollbar-width: none;
+}
+.result-refine-chips::-webkit-scrollbar { display: none; }
+.result-refine-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+.result-refine-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  line-height: 18px;
+}
+.result-refine-preview {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--surface-container-high);
+}
+
+/* Markdown base */
+.markdown {
+  color: var(--on-surface);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.markdown.result-markdown {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.markdown > :first-child { margin-top: 0; }
+.markdown > :last-child { margin-bottom: 0; }
+.markdown p { margin: 0.65em 0; }
+.markdown h1, .markdown h2, .markdown h3, .markdown h4 {
+  margin: 1.3em 0 0.5em;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0;
+}
+.markdown h1 { font-size: 1.35em; }
+.markdown h2 { font-size: 1.2em; }
+.markdown h3 { font-size: 1.08em; }
+.markdown h4 { font-size: 1em; }
+.markdown ul, .markdown ol { margin: 0.6em 0; padding-left: 1.4em; }
+.markdown ul { list-style: disc; }
+.markdown ol { list-style: decimal; }
+.markdown li { margin: 0.25em 0; }
+.markdown li > p { margin: 0.15em 0; }
+.markdown a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+.markdown strong { font-weight: 600; }
+.markdown em { font-style: italic; }
+.markdown code {
+  padding: 0.14em 0.38em;
+  border-radius: 6px;
+  background: var(--surface-container-high);
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+}
+.markdown pre {
+  margin: 0.75em 0;
+  padding: 14px;
+  border-radius: 12px;
+  background: var(--surface-container-high);
+  overflow-x: auto;
+  line-height: 1.5;
+}
+.markdown pre code { padding: 0; background: none; font-size: 0.82em; }
+.markdown blockquote {
+  margin: 0.75em 0;
+  padding: 0.1em 0 0.1em 1em;
+  border-left: 3px solid var(--outline-variant);
+  color: var(--on-surface-variant);
+}
+.markdown hr { margin: 1em 0; border: 0; border-top: 1px solid var(--outline-variant); }
+.markdown table { width: 100%; margin: 0.75em 0; border-collapse: collapse; font-size: 0.92em; display: block; overflow-x: auto; }
+.markdown th, .markdown td { padding: 6px 10px; border: 1px solid var(--outline-variant); text-align: left; }
+.markdown th { background: var(--surface-container-high); font-weight: 500; }
+.markdown img { max-width: 100%; border-radius: 8px; }
+
+.transcript-box {
+  max-height: 260px;
+  overflow-y: auto;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.log-box {
+  max-height: 148px;
+  overflow-y: auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: var(--surface-container-highest);
+  color: var(--on-surface-variant);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.prompt-block {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--surface-container-high);
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.file-drop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 132px;
+  padding: 20px;
+  border: 1px dashed var(--outline);
+  border-radius: 16px;
+  background: var(--surface-container-low);
+  color: var(--on-surface-variant);
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 140ms, background 140ms;
+}
+.file-drop:hover { border-color: var(--primary); background: var(--surface-container); }
+
+.details > summary { list-style: none; cursor: pointer; }
+details > summary::-webkit-details-marker { display: none; }
+details[open] .chevron { transform: rotate(180deg); }
+.chevron { transition: transform 140ms; }
+

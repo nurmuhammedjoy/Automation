@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+/* Import order preserves the cascade; tokens must load before any component. */
+
+@import "./styles/tokens.css";
+@import "./styles/base.css";
+@import "./styles/shell.css";
+@import "./styles/typography.css";
+@import "./styles/controls.css";
+@import "./styles/menu-select.css";
+@import "./styles/surfaces.css";
+@import "./styles/notices.css";
+@import "./styles/flows.css";
+@import "./styles/settings.css";
+@import "./styles/output.css";
+@import "./styles/run-details.css";
+@import "./styles/overlays.css";
+@import "./styles/legacy.css";
+@import "./styles/responsive.css";

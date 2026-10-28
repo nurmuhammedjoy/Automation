@@ -1,0 +1,87 @@
+/* M3 design tokens: @theme mapping and the dark palette. */
+@theme inline {
+  --color-bg: var(--surface);
+  --color-panel: var(--surface-container-low);
+  --color-panel2: var(--surface-container-high);
+  --color-line: var(--outline-variant);
+  --color-line-strong: var(--outline);
+  --color-text: var(--on-surface);
+  --color-muted: var(--on-surface-variant);
+  --color-faint: var(--on-surface-muted);
+  --color-accent: var(--primary);
+  --color-accent-soft: var(--primary-container);
+  --color-accent2: var(--tertiary);
+  --color-ok: var(--success);
+  --color-warn: var(--warning);
+  --color-err: var(--error);
+  --font-sans: "Roboto", "Roboto Flex", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "Noto Sans", sans-serif;
+  --font-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  --breakpoint-xs: 26rem;
+}
+
+:root {
+  color-scheme: dark;
+
+  --primary: #d0bcff;
+  --on-primary: #381e72;
+  --primary-container: #4f378b;
+  --on-primary-container: #eadcff;
+
+  --secondary: #ccc2dc;
+  --on-secondary: #332d41;
+  --secondary-container: #4a4458;
+  --on-secondary-container: #e8def8;
+
+  --tertiary: #efb8c8;
+  --on-tertiary: #492532;
+  --tertiary-container: #633b48;
+  --on-tertiary-container: #ffd8e4;
+
+  --surface: #141218;
+  --surface-dim: #141218;
+  --surface-bright: #3b383e;
+  --surface-container-lowest: #0f0d13;
+  --surface-container-low: #1d1b20;
+  --surface-container: #211f26;
+  --surface-container-high: #2b2930;
+  --surface-container-highest: #36343b;
+
+  --on-surface: #e6e0e9;
+  --on-surface-variant: #bdb4c8;
+  --on-surface-muted: #8d8896;
+  --outline: #8d8896;
+  --outline-variant: #3e3945;
+  /* Muted field borders for dropdowns: visible in dark mode without competing
+     with the content. Resolves against the active theme's outline tokens. */
+  --outline-field: color-mix(in srgb, var(--outline) 34%, var(--outline-variant));
+  --outline-field-hover: color-mix(in srgb, var(--outline) 54%, var(--outline-variant));
+
+  --inverse-surface: #e6e0e9;
+  --inverse-on-surface: #313033;
+  --inverse-primary: #6750a4;
+
+  --error: #f2b8b5;
+  --on-error: #601410;
+  --error-container: #8c1d18;
+  --on-error-container: #f9dedc;
+
+  --success: #b7eac1;
+  --success-container: #244b2d;
+  --on-success-container: #c9f2ce;
+  --warning: #f0cf8a;
+  --warning-container: #4b3b12;
+  --on-warning-container: #ffe2a4;
+
+  --transcribe: #9fd8e8;
+  --toast-error: #b3261e;
+  --toast-success: #266c3a;
+
+  --elevation-1: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --elevation-2: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --elevation-3: 0 4px 8px 3px rgba(0, 0, 0, 0.15), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --tabbar-height: 80px;
+  --page-width: 720px;
+}
+
+

@@ -1,0 +1,21 @@
+{
+  "name": "automation",
+  "private": true,
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Simple, local-first AI workflows that run as a static PWA",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "icons": "node scripts/make-icons.mjs",
+    "check": "node scripts/check.mjs",
+    "smoke": "node scripts/smoke.mjs"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "happy-dom": "^21.0.4",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}

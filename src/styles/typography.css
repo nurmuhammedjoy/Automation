@@ -1,0 +1,167 @@
+/* Typography scale and top app bar. */
+.page-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 8px 0 0;
+}
+
+.page-head-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.page-title {
+  margin: 0;
+  color: var(--on-surface);
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0;
+}
+
+.page-sub {
+  margin: 4px 0 0;
+  max-width: 60ch;
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.m-top-app-bar {
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  margin-inline: -12px;
+  padding: 4px 0;
+}
+
+.m-top-app-bar > .btn-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+}
+
+.m-top-app-bar-copy {
+  min-width: 0;
+  flex: 1;
+  padding: 6px 4px;
+}
+
+.m-top-app-bar-title {
+  margin: 0;
+  overflow: hidden;
+  color: var(--on-surface);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m-top-app-bar-support {
+  margin: 0;
+  overflow: hidden;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m-top-app-bar-actions {
+  display: flex;
+  flex: none;
+  align-items: center;
+}
+
+.m-top-app-bar-delete { color: var(--error); }
+.m-top-app-bar-delete:hover {
+  background: color-mix(in srgb, var(--error) 10%, transparent);
+  color: var(--error);
+}
+.m-top-app-bar-delete:active { background: color-mix(in srgb, var(--error) 16%, transparent); }
+
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 4px;
+}
+.card .section-head { padding-inline: 0; }
+
+.section-head h2,
+.section-title {
+  min-width: 0;
+  margin: 0;
+  color: var(--on-surface);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.section-head .section-sub,
+.section-sub {
+  margin: 2px 0 0;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.section-count {
+  margin-left: auto;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.group-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.group-support {
+  margin: -2px 0 0;
+  padding: 0 4px;
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.m-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.m-group > .group-support {
+  margin-top: -4px;
+}
+
+.eyebrow {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  letter-spacing: 0.02em;
+}
+
+.label {
+  display: block;
+  margin: 0 0 8px;
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+

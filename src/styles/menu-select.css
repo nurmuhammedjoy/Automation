@@ -1,0 +1,176 @@
+/* Field trigger + ⋮-style menu instead of the native Android popup. */
+
+.menu-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 56px;
+  padding: 0 14px;
+  border: 1px solid var(--outline-field);
+  border-radius: 12px;
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+  font-family: inherit;
+  font-size: 16px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 120ms, box-shadow 120ms;
+}
+.menu-trigger:hover { border-color: var(--outline-field-hover); }
+.menu-trigger:focus-visible { border-color: var(--primary); box-shadow: inset 0 0 0 1px var(--primary); }
+.menu-trigger-sm { min-height: 48px; font-size: 14px; }
+.menu-trigger-label { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.menu-trigger-chevron { flex: none; color: var(--on-surface-muted); }
+
+.menu-caption {
+  min-height: 28px;
+  padding: 4px 16px 0;
+  color: var(--on-surface-muted);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.menu-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 48px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--on-surface);
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 140ms ease, color 140ms ease;
+}
+.menu-option:hover { background: color-mix(in srgb, var(--on-surface) 6%, transparent); }
+.menu-option:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+.menu-option.selected {
+  background: var(--secondary-container);
+  color: var(--on-secondary-container);
+}
+.menu-option-state {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  color: inherit;
+}
+.menu-option-label {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.m-search { position: relative; }
+.m-search-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  display: grid;
+  place-items: center;
+  color: var(--on-surface-variant);
+  transform: translateY(-50%);
+  pointer-events: none;
+  transition: color 120ms;
+}
+.m-search .input {
+  min-height: 56px;
+  padding-left: 52px;
+  border-color: transparent;
+  border-radius: 28px;
+  background: var(--surface-container-high);
+}
+.m-search .input:hover { border-color: var(--outline-variant); }
+.m-search .input:focus { border-color: var(--primary); }
+.m-search:focus-within .m-search-icon { color: var(--primary); }
+
+/* M3E continuous slider per spec / community implementations:
+   16px track (primary fill, secondary-container inactive), transparent
+   6dp gap, 4×44 bar handle that narrows to 2px when pressed. */
+@property --gap {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 8px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 44px;
+  margin: 0;
+  --p: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: --gap 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+input[type="range"]:active { --gap: 3px; }
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 16px;
+  border-radius: 8px;
+  background: linear-gradient(
+    to right,
+    var(--primary) calc(var(--p, 50%) - var(--gap)),
+    transparent calc(var(--p, 50%) - var(--gap)) calc(var(--p, 50%) + var(--gap)),
+    var(--secondary-container) calc(var(--p, 50%) + var(--gap))
+  );
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 4px;
+  height: 44px;
+  margin-top: -14px;
+  border-radius: 2px;
+  background: var(--primary);
+  transition: width 200ms cubic-bezier(0.2, 0, 0, 1);
+}
+input[type="range"]:active::-webkit-slider-thumb { width: 2px; }
+input[type="range"]::-moz-range-track {
+  height: 16px;
+  border-radius: 8px;
+  background: var(--secondary-container);
+}
+input[type="range"]::-moz-range-progress {
+  height: 16px;
+  border-radius: 8px;
+  background: var(--primary);
+}
+input[type="range"]::-moz-range-thumb {
+  width: 4px;
+  height: 44px;
+  border: 0;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+input[type="file"] { max-width: 100%; font-size: 13px; color: var(--on-surface-variant); }
+input[type="file"]::file-selector-button {
+  margin-right: 12px;
+  padding: 8px 14px;
+  border: 1px solid var(--outline);
+  border-radius: 16px;
+  background: transparent;
+  color: var(--primary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+}
+
